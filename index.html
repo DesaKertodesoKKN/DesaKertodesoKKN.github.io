@@ -173,6 +173,30 @@
                  .addTo(map);
 
         </script>
+
+        <!--Tugas M5-->
+        <center><h1><b>TUGAS M5</b></h1></center>
+        <center>
+            <div id="map1"></div>
+        </center>
+
+        <script>
+            var map = L.map('map1',{
+            center: [-7.764038654325745, 110.3831644682195],
+            zoom: 15
+            });
+
+            L.tileLayer('https://mt0.google.com/vt/lyrs=s&x={x}&y={y}&z={z}', {
+                maxZoom: 25, 
+                attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+            })
+                .addTo(map);
+            
+                var home = L.icon({iconUrl: 'assets/images/RM.png', iconSize:[28, 45]});
+            var rumah = L.marker([-7.764038654325745, 110.3831644682195], {icon: home})
+                .bindPopup('<center><img src="assets/images/Antologi.jpg" width="300px" height="200px" title="Antologi Collaborative Space" alt="Antologi Collaborative Space"></center><h1>Antologi Collaboractive Space.</h1>')
+                .addTo(map)
+        </script>
         <!-- Poster Infografis-->
         <section class="page-section" id="about">
             <div class="container">
