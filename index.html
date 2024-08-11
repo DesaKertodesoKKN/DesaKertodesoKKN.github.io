@@ -59,9 +59,10 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
-                        <li class="nav-item"><a class="nav-link" href="petaa.html">Peta</a></li>
                         <li class="nav-item"><a class="nav-link" href="#pengantar">Pengantar</a></li>
                         <li class="nav-item"><a class="nav-link" href="#pengetahuan">Desa Kertodeso</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#portfolio">Dokumentasi</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#peta">Peta</a></li>
                         <li class="nav-item"><a class="nav-link" href="#team">Team</a></li>
                         <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
                     </ul>
@@ -89,7 +90,15 @@
                         Selain itu, peta ini juga digunakan sebagai salah satu pendukung dalam pengembangan Desa Wisata Berbasis Organik. 
                         Dengan menunjukkan lokasi-lokasi lahan organik, wisatawan dapat lebih tertarik untuk berkunjung dan belajar mengenai pertanian organik yang dijalankan di Desa Kertodeso.
                     </h3>
+                    <div data-blockid="n-e9GS2p" id="n-e9GS2p" class="jsx-4108786604 layout-wrapper" style="color:orange">
+                        <div class="jsx-2705454768 grid-item-lite">
+                            <div class="jsx-4002013567 separator-wrapper">
+                                <hr class="jsx-4002013567 separator line-single">
+                            </div>
+                        </div>
+                    </div>
                    </div>
+
         <!-- Pengetahuan-->
         <section class="page-section" id="pengetahuan">
             <div class="container">
@@ -145,12 +154,14 @@
                 </div>
             </div>
         </section>
+
         <!-- Dokumentasi-->
+         
         <section class="page-section bg-light" id="portfolio">
             <div class="container">
                 <div class="text-center">
-                    <h2 class="section-heading text-uppercase">Dokumentasi</h2>
-                    <h3 class="section-subheading text-muted">Persebaran Lahan Jambu Kristal</h3>
+                    <h2 class="section-heading text-uppercase" style="color:orange">Dokumentasi </h2>
+                    <h3 class="section-subheading text-muted">Dokumentasi Persebaran Lahan Jambu Kristal</h3>
                 </div>
                 <div class="row">
                     <div class="col-lg-4 col-sm-6 mb-4">
@@ -179,49 +190,17 @@
                    </div>
             </div>
         </section>
-         <!-- Peta-->
-        <center><h1><b>Peta</b></h1></center>
-        <center>
-            <div id="map1"></div>
-        </center>
-        
-         <script>
-            var map = L.map('map1',{
-            center: [-7.764038654325745, 110.3831644682195],
-            zoom: 15
-            });
-        
-            L.tileLayer('https://mt0.google.com/vt/lyrs=s&x={x}&y={y}&z={z}', {
-                maxZoom: 25, 
-                attribution: '&copy; <a href="petaa.html">OpenStreetMap</a> contributors'
-            })
-                 .addTo(map);
 
-        </script>
-
-        <!--Tugas M5-->
-        <center><h1><b>TUGAS M5</b></h1></center>
-        <center>
-            <div id="map1"></div>
-        </center>
-
-        <script>
-            var map = L.map('map1',{
-            center: [-7.764038654325745, 110.3831644682195],
-            zoom: 15
-            });
-
-            L.tileLayer('https://mt0.google.com/vt/lyrs=s&x={x}&y={y}&z={z}', {
-                maxZoom: 25, 
-                attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-            })
-                .addTo(map);
-            
-                var home = L.icon({iconUrl: 'assets/images/RM.png', iconSize:[28, 45]});
-            var rumah = L.marker([-7.764038654325745, 110.3831644682195], {icon: home})
-                .bindPopup('<center><img src="assets/images/Antologi.jpg" width="300px" height="200px" title="Antologi Collaborative Space" alt="Antologi Collaborative Space"></center><h1>Antologi Collaboractive Space.</h1>')
-                .addTo(map)
-        </script>
+        <!-- Peta-->     
+        <section class="page-section" id="peta" style="color:orange">
+            <div class="container">
+                <div class="text-center">
+                    <h2>PETA</h2>
+                    <h3 class="section-subheading text-muted">Peta Persebaran Lokasi Jambu Kristal</h3>
+                    <iframe src="C:\Users\Agus Adi Purnomo\Documents\KKN\PROKEE\storymaps\web\petaa.html" width="1100" height ="500" ></iframe>         
+                </div>
+            </div>
+        </section>
         <!-- Poster Infografis-->
         <section class="page-section" id="about">
             <div class="container">
