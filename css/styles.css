@@ -1931,6 +1931,26 @@ progress {
   -webkit-overflow-scrolling: touch;
 }
 
+@media (max-width: 768px) {
+  #potensi .container {
+      padding-left: 15px;
+      padding-right: 15px;
+  }
+
+  #potensi img {
+      width: 100%;
+      height: auto;
+  }
+
+  #potensi h2 {
+      font-size: 24px;
+  }
+
+  #potensi h3 {
+      font-size: 18px;
+  }
+}
+
 @media (max-width: 575.98px) {
   .table-responsive-sm {
     overflow-x: auto;
