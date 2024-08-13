@@ -21,24 +21,23 @@
         <script src="https://unpkg.com/leaflet@1.9.1/dist/leaflet.js"
         integrity="sha256-NDI0K41gVbWqfkkaHj15IzU7PtMoelkzyKp8TOaFQ3s="
         crossorigin=""></script>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
         <style>
-        #map {
-            width: 1000px;
-            height: 500px;
-            margin-top: 50px;
+            #myChart {
+                max-width: 500px; /* Mengatur ukuran maksimum diagram */
+                margin: auto;
             }
-        #map1 {
-            width: 1000px;
-            height: 500px;
-            margin-top: 50px;
-            }
-            #fname{
-                    margin-bottom: 5px; 
-                    margin-left: 8.8px;
-                }
-                a{
-                    text-decoration:none;
-                }
+            .chart-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: row;
+
+            iframe {
+            width: 100%; /* Mengatur lebar 100% dari kontainer */
+            height: auto; /* Menyesuaikan tinggi secara proporsional */
+            border: none; /* Menghilangkan border */
+        }}
         </style>
     </head>
     <body id="page-top">
@@ -61,10 +60,9 @@
                     <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
                         <li class="nav-item"><a class="nav-link" href="#pengantar">Pengantar</a></li>
                         <li class="nav-item"><a class="nav-link" href="#pengetahuan">Desa Kertodeso</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#portfolio">Dokumentasi</a></li>
                         <li class="nav-item"><a class="nav-link" href="#peta">Peta</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#potensi">Potensi Desa</a></li>
                         <li class="nav-item"><a class="nav-link" href="#team">Team</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
                     </ul>
                 </div>
             </div>
@@ -78,7 +76,7 @@
             </div>
         </header>
         <!-- Pengantar-->
-        <section class="page-section" id="pengantar">
+        <section class="page-section bg-light" id="pengantar">
             <div class="container">
                 <div class="text-center">
                     <h2 class="section-heading text-uppercase" style="color:orange">Pengantar</h2>
@@ -100,7 +98,7 @@
                    </div>
 
         <!-- Pengetahuan-->
-        <section class="page-section" id="pengetahuan">
+        <section class="page-section bg-light" id="pengetahuan">
             <div class="container">
                 <div class="text-center">
                     <h2 class="section-heading text-uppercase" style="color:orange">Desa Kertodeso</h2>
@@ -108,7 +106,7 @@
                     <h3 class="section-heading text-uppercase" style="font-size: 12px; color:rgb(156, 156, 150)">Bias Rambu Suchinta (21/477197/TK/52552)</p-->
                     <h3 class="my-3" style="text-align: justify; font-size: 14px; margin-bottom: 10px; color:black"> Kertodeso secara harfiah terdiri dari dua kata yaitu "Kerto" dan "Deso". Kata "Kerto" 
                     merupakan saduran dari kata "Karta" yang  dalam bahasa Jawa Kawi berarti “tentram”, sedangkan kata "deso" dari kata “desa” yang mengalami perubahan bunyi pada Bahasa Jawa dari vokal “A” yang menjadi “o”. 
-                    Jadi Kertodeso secara harfiah dapat diartikan sebagai “desa yang tentram”. Desa Kertodeso memiliki enam dusun, antara lain Dusun Rowo Pakel, Dusun Babaanyar, Dusun Pathuk Dasar, Dusun Dasar, Dusun Krajan, Dan Dusun Kedungsawit.
+                    Jadi Kertodeso secara harfiah dapat diartikan sebagai “desa yang tentram”. Desa Kertodeso memiliki enam dusun, antara lain Dusun Rowo Pakel, Dusun Babah Anyar, Dusun Pathuk Dasar, Dusun Dasar, Dusun Krajan, Dan Dusun Kedungsawit.
                     <br>Desa Kertodeso sangat terkenal hasil pertaniannya semenjak jaman dahulu. Salah satu komoditas unggulan Desa Kertodeso pada zaman Bapak Kepala Desa Darso Mujiono adalah buah jeruk. 
                     Komoditas lain yang menjadi produk unggulan dari Desa Kertodeso lainnya berupa pisang, kelapa, dan padi. Sehingga dapat dikatakan Desa Kertodeso memiliki potensi di bidang Pertanian.
                     Lahan pertanian di Desa Kertodeso didominasi oleh tanaman jambu kristal, yang tentu saja membantu dalam pengembangan ekonomi Desa Kertodeso. Dusun dengan komoditas pertanian jambu kristal terbanyak di Dusun Pakel, Dusun Krajan, dan Dusun Kedungsawit.  </h3>
@@ -155,6 +153,76 @@
             </div>
         </section>
 
+        <!-- Peta-->     
+        <section class="page-section bg-light" id="peta">
+            <div class="container">
+                <div class="text-center" style="color:orange">
+                    <h2>PETA</h2>
+                    <h3 class="section-subheading text-muted">Peta Persebaran Lokasi Jambu Kristal</h3>
+                    <iframe src="Lahan Jambu.html" width="1100" height ="500" ></iframe>         
+                </div>
+            </div>
+        </section>
+
+        
+        <!-- Luas-->     
+        <h2 style="text-align:center; color:orange">LUAS LAHAN JAMBU KRISTAL</h2>
+        <div class="chart-container" >
+            <canvas id="myChart"></canvas>
+            <div id="chartLegend"></div>
+        </div>
+
+        <script>
+            const ctx = document.getElementById('myChart').getContext('2d');
+            const myChart = new Chart(ctx, {
+                type: 'pie',
+                data: {
+                    labels: ['Babah Anyar', 'Dasar', 'Kedung Sawit', 'Krajan', 'Patuk Dasar', 'Rowo Pakel'],
+                    datasets: [{
+                        data: [446.7818347, 10538.07889, 31014.03012, 149986.0018, 1400.079504, 32623.56579],
+                        backgroundColor: [
+                            'blue',
+                            'orange',
+                            'grey',
+                            'yellow',
+                            'cyan',
+                            'green'
+                        ],
+                        borderColor: [
+                            'white'
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            display: true,
+                            position: 'right', // Menempatkan label di sebelah kanan diagram
+                            labels: {
+                                usePointStyle: true,
+                            }
+                        }
+                    }
+                }
+            });
+        </script>
+
+        
+        <!-- Peta-->     
+        <section class="page-section bg-light" id="potensi">
+            <div class="container">
+                <div class="text-center" style="color:orange">
+                    <h2>POTENSI DESA</h2>
+                    <h3 class="section-subheading text-muted">Potensi Desa Kertodeso Tiap Dusun</h3>
+                    <img src="assets/img/dokum/potensi.png" alt="Potensi Desa Kertodeso" style="max-width: 100%; height: auto;">
+                </div>
+            </div>
+        </section>
+        
+
         <!-- Dokumentasi-->
          
         <section class="page-section bg-light" id="portfolio">
@@ -191,16 +259,6 @@
             </div>
         </section>
 
-        <!-- Peta-->     
-        <section class="page-section" id="peta" style="color:orange">
-            <div class="container">
-                <div class="text-center">
-                    <h2>PETA</h2>
-                    <h3 class="section-subheading text-muted">Peta Persebaran Lokasi Jambu Kristal</h3>
-                    <iframe src="Lahan Jambu.html" width="1100" height ="500" ></iframe>         
-                </div>
-            </div>
-        </section>
         <!-- Poster Infografis-->
         <section class="page-section" id="about">
             <div class="container">
