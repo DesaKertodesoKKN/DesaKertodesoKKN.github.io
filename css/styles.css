@@ -1931,24 +1931,12 @@ progress {
   -webkit-overflow-scrolling: touch;
 }
 
-@media (max-width: 768px) {
-  #potensi .container {
-      padding-left: 15px;
-      padding-right: 15px;
-  }
-
-  #potensi img {
-      width: 100%;
-      height: auto;
-  }
-
-  #potensi h2 {
-      font-size: 24px;
-  }
-
-  #potensi h3 {
-      font-size: 18px;
-  }
+.img-responsive {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 @media (max-width: 575.98px) {
